@@ -13,6 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+
             name='Category',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -24,8 +25,10 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'categories',
                 'ordering': ('name',),
             },
+
         ),
         migrations.CreateModel(
+
             name='Product',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -43,5 +46,6 @@ class Migration(migrations.Migration):
                 'ordering': ('name',),
                 'index_together': {('id', 'slug')},
             },
+
         ),
     ]

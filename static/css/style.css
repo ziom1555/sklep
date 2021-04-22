@@ -1,0 +1,13 @@
+#style_form
+{
+    height: 250px;
+    background-color: #99FFFF;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.field
+{
+    height: 50px;
+}

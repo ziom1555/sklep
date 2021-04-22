@@ -1,0 +1,60 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-03 16:12+0200\n"
+"PO-Revision-Date: 2021-04-03 16:30+0000\n"
+"Last-Translator: b'  <kubikgrzegorz@o2.pl>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.6\n"
+
+#: .\cart\forms.py:11
+msgid "Quantity"
+msgstr "Quantity"
+
+#: .\coupons\forms.py:6
+msgid "Coupon"
+msgstr "Coupon"
+
+#: .\myshop\settings.py:185
+msgid "polski"
+msgstr "polish"
+
+#: .\myshop\settings.py:186
+msgid "angielski"
+msgstr "english"
+
+#: .\shop\templates\shop\base.html:7 .\shop\templates\shop\base.html:14
+msgid "Mój sklep"
+msgstr "My shop"
+
+#: .\shop\templates\shop\base.html:20
+msgid "Koszyk"
+msgstr "Basket"
+
+#: .\shop\templates\shop\base.html:22
+#, python-format
+msgid ""
+"\n"
+"              %(total_items)s item%(total_items_plural)s, %(total_price)s zł\n"
+"        "
+msgstr ""
+
+#: .\shop\templates\shop\base.html:27
+msgid "Koszyk jest pusty."
+msgstr "Basket is empty."
+
+#: .\shop\templates\shop\product\detail.html:23
+msgid "Dodaj do koszyka"
+msgstr "Add to cart"

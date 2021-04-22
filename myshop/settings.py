@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'django_celery_results',
+    'payment.apps.PaymentConfig',
+    'coupons.apps.CouponsConfig',
+    'rosetta',
+    'parler',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'myshop.urls'
@@ -110,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'UTC'
 
@@ -125,6 +130,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 
 
 MEDIA_URL = '/media/'
@@ -140,3 +147,54 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj.settings')
 CELERY_TIMEZONE = "Poland"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_TASK_ALWAYS_EAGER = True
+
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = 'yvfkskj34rxbqnkf'  # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'jgssgfxw2ks2ftwm'   # Public Key
+BRAINTREE_PRIVATE_KEY = '3af3d6a78f54e71e2e4c02cf8cb3d3ac'  # Private key
+
+
+from braintree import Configuration, Environment
+Configuration.configure(
+    Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'kubikgrzegorz.kubik49@gmail.com'
+EMAIL_HOST_PASSWORD = '12kuba181lx'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+LANGUAGES = (
+    ('pl', 'polski'),
+    ('en', 'angielski'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
+
+from django.utils.translation import gettext_lazy as _
+
+
+LANGUAGES = (
+    ('pl', _('polski')),
+    ('en', _('angielski')),
+)
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en', },
+        {'code': 'pl', },
+    ),
+    'default': {
+        'fallback': 'pl',
+        'hide_untranslated': False,
+    }
+}
